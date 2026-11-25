@@ -59,6 +59,11 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     html {
       scroll-behavior: smooth;
       font-family: 'Inter', sans-serif;
@@ -76,9 +81,22 @@
     body { padding-bottom: 78px; }
 
     .container {
+      width: 100%;
       max-width: 1180px;
       margin: 0 auto;
-      padding: 0 22px;
+      padding: 0 18px;
+    }
+
+    /* Zabezpieczenie przed rozpychaniem siatki na telefonach */
+    .hero-grid > *,
+    .cards-3 > *,
+    .law-grid > *,
+    .inspect-box > *,
+    .vs-grid > *,
+    .about-b2b-grid > *,
+    .reviews-grid > *,
+    .final-cta > * {
+      min-width: 0;
     }
 
     /* Tło kreślarskie */
@@ -102,43 +120,47 @@
     }
 
     .nav {
-      height: 78px;
+      min-height: 74px;
+      padding: 10px 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 12px;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 11px;
       text-decoration: none;
-      flex-shrink: 0;
+      min-width: 0;
     }
 
     .logo-img {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       object-fit: cover;
       border: 1px solid var(--line);
       flex-shrink: 0;
     }
 
+    .logo-info {
+      min-width: 0;
+    }
+
     .logo-info strong {
       display: block;
       color: var(--ink);
-      font-size: 1.06rem;
+      font-size: 1.04rem;
       line-height: 1.15;
-      white-space: nowrap;
     }
 
     .logo-info span {
       display: block;
-      font-size: 0.76rem;
+      font-size: 0.75rem;
       color: var(--muted);
-      white-space: nowrap;
+      line-height: 1.25;
     }
 
     .nav-links {
@@ -163,16 +185,16 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 13px 20px;
+      padding: 13px 18px;
       border-radius: 11px;
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: 0.94rem;
+      font-size: 0.93rem;
       text-decoration: none;
       transition: all 0.18s ease;
       cursor: pointer;
       border: none;
-      white-space: nowrap;
+      text-align: center;
     }
 
     .btn-primary {
@@ -210,46 +232,48 @@
 
     /* HERO */
     .hero {
-      padding: 50px 0 66px;
+      padding: 36px 0 56px;
       border-bottom: 1px solid var(--line);
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.08fr 1.02fr;
-      gap: 44px;
+      gap: 36px;
       align-items: start;
     }
 
     .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      display: inline-block;
       background: #f1f5f9;
       border: 1px solid #cbd5e1;
       color: var(--ink);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 99px;
+      padding: 7px 13px;
+      border-radius: 12px;
       margin-bottom: 18px;
+      line-height: 1.35;
     }
 
     .hero h1 {
-      font-size: 2.55rem;
-      line-height: 1.12;
-      margin-bottom: 18px;
+      font-size: 2.5rem;
+      line-height: 1.14;
+      margin-bottom: 16px;
+      word-wrap: break-word;
     }
 
     .hero h1 mark {
       background: linear-gradient(120deg, #d1fae5 0%, #a7f3d0 100%);
       color: var(--ink);
-      padding: 0 8px;
+      padding: 1px 6px;
       border-radius: 6px;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
     .hero-sub {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: var(--slate);
       margin-bottom: 22px;
     }
@@ -258,8 +282,9 @@
     .ep-strip {
       display: flex;
       gap: 4px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       max-width: 360px;
+      width: 100%;
     }
 
     .ep-strip span {
@@ -277,27 +302,31 @@
     .metrics-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 22px;
+      gap: 10px;
+      margin-bottom: 20px;
     }
 
     .metric {
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 12px;
-      padding: 14px 16px;
+      padding: 12px 12px;
     }
 
     .metric strong {
       display: block;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.22rem;
+      font-size: 1.15rem;
       color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 2px;
     }
 
     .metric span {
-      font-size: 0.8rem;
+      display: block;
+      font-size: 0.76rem;
       color: var(--muted);
+      line-height: 1.25;
     }
 
     .no-doc-note {
@@ -305,8 +334,8 @@
       border: 1px solid var(--line);
       border-left: 4px solid var(--ink);
       border-radius: 12px;
-      padding: 15px 18px;
-      font-size: 0.9rem;
+      padding: 14px 16px;
+      font-size: 0.88rem;
     }
 
     /* INTERAKTYWNY KONFIGURATOR W HERO */
@@ -314,7 +343,7 @@
       background: #ffffff;
       border: 2px solid var(--ink);
       border-radius: 20px;
-      padding: 28px;
+      padding: 24px 20px;
       box-shadow: 0 24px 48px -16px rgba(15, 23, 42, 0.14);
     }
 
@@ -322,31 +351,32 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       margin-bottom: 18px;
       padding-bottom: 14px;
       border-bottom: 1px solid var(--line);
     }
 
-    .config-head h2 { font-size: 1.22rem; }
+    .config-head h2 { font-size: 1.18rem; line-height: 1.2; }
 
     .config-tag {
       background: var(--ink);
       color: #fff;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      padding: 5px 10px;
+      padding: 5px 9px;
       border-radius: 6px;
       text-transform: uppercase;
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .label-step {
       display: block;
-      font-size: 0.76rem;
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       color: var(--muted);
       margin-bottom: 8px;
     }
@@ -354,23 +384,25 @@
     .toggle-grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-bottom: 18px;
+      gap: 7px;
+      margin-bottom: 16px;
     }
 
     .choice-btn {
       background: #f8fafc;
       border: 1.5px solid var(--line);
       border-radius: 10px;
-      padding: 11px 8px;
+      padding: 10px 6px;
       text-align: center;
       cursor: pointer;
       font-family: 'Inter', sans-serif;
       font-weight: 600;
-      font-size: 0.84rem;
+      font-size: 0.81rem;
       color: var(--slate);
       transition: all 0.15s;
       line-height: 1.25;
+      min-width: 0;
+      word-wrap: break-word;
     }
 
     .choice-btn:hover { border-color: #94a3b8; }
@@ -386,21 +418,21 @@
       background: #f8fafc;
       border: 1px solid var(--line);
       border-radius: 14px;
-      padding: 18px;
-      margin-bottom: 18px;
+      padding: 16px;
+      margin-bottom: 16px;
     }
 
     .quote-price-line {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       margin-bottom: 12px;
     }
 
     .quote-price {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.1rem;
+      font-size: 1.95rem;
       font-weight: 700;
       color: var(--ink);
       white-space: nowrap;
@@ -408,13 +440,13 @@
     }
 
     .quote-price.custom {
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       color: var(--accent-dark);
     }
 
     .quote-checklist {
       list-style: none;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       color: var(--slate);
       display: grid;
       gap: 6px;
@@ -436,23 +468,23 @@
     .cta-row-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 9px;
+      gap: 8px;
     }
 
     .after-hours-note {
       margin-top: 12px;
-      font-size: 0.8rem;
+      font-size: 0.79rem;
       color: var(--muted);
       text-align: center;
       line-height: 1.4;
     }
 
     /* SEKCJE */
-    section { padding: 70px 0; }
+    section { padding: 60px 0; }
 
     .section-title {
       max-width: 740px;
-      margin: 0 auto 44px;
+      margin: 0 auto 38px;
       text-align: center;
     }
 
@@ -460,30 +492,30 @@
       display: inline-block;
       color: var(--accent);
       font-weight: 700;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 8px;
     }
 
     .section-title h2 {
-      font-size: 2rem;
+      font-size: 1.9rem;
       line-height: 1.2;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
-    /* CO DOSTAJESZ W CENIE (3 KARTY) */
+    /* CO DOSTAJESZ W CENIE */
     .cards-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 20px;
     }
 
     .info-card {
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 16px;
-      padding: 26px;
+      padding: 24px;
     }
 
     .icon-box {
@@ -496,47 +528,47 @@
       font-weight: 700;
       display: grid;
       place-items: center;
-      margin-bottom: 16px;
-      font-size: 1.15rem;
+      margin-bottom: 14px;
+      font-size: 1.1rem;
     }
 
     .info-card h3 {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       margin-bottom: 8px;
     }
 
     .info-card p {
-      font-size: 0.92rem;
+      font-size: 0.91rem;
       color: var(--slate);
     }
 
-    /* UCZCIWA CHECKLISTA (KIEDY WYMAGANE) */
+    /* UCZCIWA CHECKLISTA */
     .law-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 22px;
     }
 
     .law-card {
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 18px;
-      padding: 30px;
+      padding: 26px;
     }
 
     .law-card.required { border-top: 4px solid var(--accent); }
     .law-card.optional { border-top: 4px solid #94a3b8; }
 
     .law-card h3 {
-      font-size: 1.22rem;
-      margin-bottom: 16px;
+      font-size: 1.18rem;
+      margin-bottom: 14px;
     }
 
     .law-list {
       list-style: none;
       display: grid;
-      gap: 12px;
-      font-size: 0.94rem;
+      gap: 11px;
+      font-size: 0.92rem;
     }
 
     .law-card.required .law-list li::before {
@@ -556,10 +588,10 @@
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 20px;
-      padding: 32px;
+      padding: 24px;
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
-      gap: 32px;
+      gap: 24px;
       align-items: center;
     }
 
@@ -569,7 +601,7 @@
       text-align: left;
       background: #f8fafc;
       border: 1.5px solid var(--line);
-      padding: 15px 18px;
+      padding: 14px 16px;
       border-radius: 12px;
       cursor: pointer;
       transition: all 0.15s;
@@ -578,12 +610,12 @@
     .tab-btn strong {
       display: block;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1rem;
+      font-size: 0.98rem;
       color: var(--ink);
     }
 
     .tab-btn span {
-      font-size: 0.83rem;
+      font-size: 0.82rem;
       color: var(--muted);
     }
 
@@ -599,11 +631,11 @@
       background: #f8fafc;
       border: 1px solid var(--line);
       border-radius: 16px;
-      padding: 28px;
+      padding: 24px;
     }
 
-    .tab-panel h3 { font-size: 1.3rem; margin-bottom: 12px; }
-    .tab-panel p { margin-bottom: 16px; font-size: 0.95rem; }
+    .tab-panel h3 { font-size: 1.25rem; margin-bottom: 10px; }
+    .tab-panel p { margin-bottom: 14px; font-size: 0.93rem; }
 
     .tab-tags {
       display: flex;
@@ -614,37 +646,37 @@
     .tab-tags span {
       background: #fff;
       border: 1px solid var(--line);
-      padding: 6px 12px;
+      padding: 6px 11px;
       border-radius: 8px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
       color: var(--ink);
     }
 
-    /* WYBRANE REALIZACJE (BEZ ZDJĘĆ) */
+    /* WYBRANE REALIZACJE */
     .case-badge {
       display: inline-block;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 4px 10px;
+      letter-spacing: 0.04em;
+      padding: 4px 9px;
       border-radius: 6px;
       background: #f1f5f9;
       color: var(--ink);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     /* PORÓWNANIE */
     .vs-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 22px;
     }
 
     .vs-card {
       border-radius: 18px;
-      padding: 30px;
+      padding: 26px;
       background: #fff;
     }
 
@@ -656,19 +688,20 @@
     }
 
     .vs-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 16px;
+      font-size: 1.15rem;
+      margin-bottom: 14px;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
     }
 
     .vs-list {
       list-style: none;
       display: grid;
-      gap: 12px;
-      font-size: 0.94rem;
+      gap: 11px;
+      font-size: 0.92rem;
     }
 
     .vs-bad .vs-list li::before {
@@ -688,54 +721,54 @@
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 16px;
-      padding: 24px;
+      padding: 22px;
     }
 
     .area-card h3 {
-      font-size: 1.08rem;
-      margin-bottom: 10px;
+      font-size: 1.06rem;
+      margin-bottom: 8px;
       color: var(--ink);
     }
 
     .area-card p {
-      font-size: 0.9rem;
+      font-size: 0.89rem;
       color: var(--slate);
-      line-height: 1.7;
+      line-height: 1.65;
     }
 
     /* O WYKONAWCY + B2B */
     .about-b2b-grid {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
+      gap: 22px;
     }
 
     .about-box {
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 18px;
-      padding: 32px;
+      padding: 28px;
     }
 
     .b2b-box {
       background: #f8fafc;
       border: 1.5px dashed #94a3b8;
       border-radius: 18px;
-      padding: 32px;
+      padding: 28px;
     }
 
     /* OPINIE */
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
 
     .review-card {
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 16px;
-      padding: 24px;
+      padding: 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -760,7 +793,7 @@
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 12px;
-      padding: 18px 22px;
+      padding: 16px 20px;
     }
 
     summary {
@@ -772,43 +805,45 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 12px;
     }
 
     summary::-webkit-details-marker { display: none; }
-    summary::after { content: "+"; color: var(--accent); font-size: 1.4rem; }
+    summary::after { content: "+"; color: var(--accent); font-size: 1.4rem; flex-shrink: 0; }
     details[open] summary::after { content: "−"; }
-    details p { margin-top: 12px; font-size: 0.94rem; }
+    details p { margin-top: 12px; font-size: 0.92rem; }
 
     /* FOOTER & MOBILE BAR */
     .final-cta {
       background: var(--ink);
       color: #fff;
       border-radius: 22px;
-      padding: 46px 40px;
+      padding: 40px 28px;
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
-      gap: 32px;
+      gap: 28px;
       align-items: center;
     }
 
-    .final-cta h2 { color: #fff; font-size: 1.95rem; margin-bottom: 12px; }
-    .final-cta p { color: #cbd5e1; margin-bottom: 24px; }
+    .final-cta h2 { color: #fff; font-size: 1.85rem; margin-bottom: 12px; }
+    .final-cta p { color: #cbd5e1; margin-bottom: 22px; }
 
     .contact-card-dark {
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.14);
       border-radius: 14px;
-      padding: 24px;
-      font-size: 0.92rem;
+      padding: 22px;
+      font-size: 0.9rem;
       display: grid;
-      gap: 11px;
+      gap: 10px;
+      word-break: break-word;
     }
 
     footer {
       text-align: center;
-      padding: 36px 20px;
+      padding: 32px 18px;
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.83rem;
     }
 
     .sticky-mobile {
@@ -828,12 +863,13 @@
     .sticky-mobile a {
       flex: 1;
       text-align: center;
-      padding: 12px 6px;
+      padding: 12px 4px;
       border-radius: 10px;
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
+      min-width: 0;
     }
 
     @media (max-width: 1060px) {
@@ -844,8 +880,23 @@
       .hero-grid, .cards-3, .law-grid, .inspect-box, .vs-grid, .about-b2b-grid, .reviews-grid, .final-cta {
         grid-template-columns: 1fr;
       }
-      .hero h1 { font-size: 2rem; }
+      .hero h1 { font-size: 1.85rem; }
+      .section-title h2 { font-size: 1.65rem; }
       .sticky-mobile { display: flex; }
+    }
+
+    @media (max-width: 440px) {
+      .container { padding: 0 14px; }
+      .hero h1 { font-size: 1.68rem; }
+      .metrics-row { gap: 8px; }
+      .metric { padding: 10px 8px; }
+      .metric strong { font-size: 1.05rem; }
+      .metric span { font-size: 0.72rem; }
+      .configurator { padding: 20px 14px; }
+      .toggle-grid-3 { gap: 5px; }
+      .choice-btn { font-size: 0.75rem; padding: 10px 4px; }
+      .cta-row-2 { grid-template-columns: 1fr; }
+      .quote-price { font-size: 1.75rem; }
     }
   </style>
 </head>
@@ -926,9 +977,9 @@
 
         <span class="label-step">1. Wybierz rodzaj nieruchomości:</span>
         <div class="toggle-grid-3">
-          <button type="button" class="choice-btn active" onclick="setType('dom', this)">🏠 Dom jednorodzinny</button>
+          <button type="button" class="choice-btn active" onclick="setType('dom', this)">🏠 Dom</button>
           <button type="button" class="choice-btn" onclick="setType('mieszkanie', this)">🏢 Mieszkanie</button>
-          <button type="button" class="choice-btn" onclick="setType('uslugowy', this)">🏪 Lokal usługowy</button>
+          <button type="button" class="choice-btn" onclick="setType('uslugowy', this)">🏪 Lokal</button>
         </div>
 
         <span class="label-step">2. Do czego potrzebujesz świadectwa?</span>
@@ -941,8 +992,8 @@
         <div class="quote-result">
           <div class="quote-price-line">
             <div>
-              <span style="font-size: 0.8rem; color: var(--muted); display: block;">Koszt całkowity (dojazd + wpis MRiT):</span>
-              <strong id="quote-title" style="font-size: 0.95rem; color: var(--ink);">Dom jednorodzinny (do 250 m²) – odbiór budowy</strong>
+              <span style="font-size: 0.78rem; color: var(--muted); display: block;">Koszt całkowity (dojazd + wpis MRiT):</span>
+              <strong id="quote-title" style="font-size: 0.93rem; color: var(--ink);">Dom jednorodzinny (do 250 m²) – odbiór budowy</strong>
             </div>
             <div class="quote-price" id="quote-price">400 zł</div>
           </div>
@@ -1080,7 +1131,7 @@
     </div>
   </section>
 
-  <!-- WYBRANE REALIZACJE (BEZ ZDJĘĆ) -->
+  <!-- WYBRANE REALIZACJE -->
   <section style="padding-top: 10px;">
     <div class="container">
       <div class="section-title">
@@ -1178,21 +1229,21 @@
       <div class="about-box">
         <span class="kicker" style="color: var(--accent); font-weight: 700; font-size: 0.78rem; text-transform: uppercase;">O wykonawcy</span>
         <h3 style="font-size: 1.4rem; margin: 6px 0 12px;">inż. Paweł Bujak</h3>
-        <p style="font-size: 0.94rem; margin-bottom: 12px;">
+        <p style="font-size: 0.93rem; margin-bottom: 12px;">
           Jestem inżynierem ze Skrzeszewa (gm. Żukowo), wpisanym do centralnego rejestru osób uprawnionych do sporządzania świadectw charakterystyki energetycznej pod numerem <strong>46029</strong>.
         </p>
-        <p style="font-size: 0.94rem; color: var(--muted);">
+        <p style="font-size: 0.93rem; color: var(--muted);">
           Nie prowadzę masowej sprzedaży dokumentów przez internet — każde zlecenie traktuję indywidualnie, zaczynając od osobistych pomiarów budynku na miejscu, tak aby dokument bezproblemowo przeszedł weryfikację w urzędzie, banku czy kancelarii notarialnej.
         </p>
       </div>
 
       <div class="b2b-box">
         <span class="kicker" style="color: var(--ink); font-weight: 700; font-size: 0.78rem; text-transform: uppercase;">Współpraca branżowa</span>
-        <h3 style="font-size: 1.3rem; margin: 6px 0 12px;">Dla Kierowników Budowy, Architektów i Pośredników</h3>
-        <p style="font-size: 0.92rem; margin-bottom: 16px;">
+        <h3 style="font-size: 1.28rem; margin: 6px 0 12px;">Dla Kierowników Budowy, Architektów i Pośredników</h3>
+        <p style="font-size: 0.91rem; margin-bottom: 16px;">
           Prowadzisz odbiory domów jednorodzinnych lub sprzedaż nieruchomości w regionie? Zapewniam terminowe pomiary na miejscu u Twoich klientów i szybkie przekazanie gotowych dokumentów do PINB lub notariusza.
         </p>
-        <a href="tel:+48508184949" class="btn btn-ghost" style="font-size: 0.88rem; padding: 11px 16px;">📞 Kontakt bezpośredni: 508 18 49 49</a>
+        <a href="tel:+48508184949" class="btn btn-ghost" style="font-size: 0.88rem; padding: 11px 16px;">📞 Kontakt: 508 18 49 49</a>
       </div>
     </div>
   </section>
@@ -1210,7 +1261,7 @@
         <div class="review-card">
           <div>
             <div class="stars">★★★★★</div>
-            <p style="font-size: 0.93rem; margin-bottom: 14px;">„Bardzo polecam! Profesjonalna i szybka obsługa, wszystko zostało dokładnie wyjaśnione, a świadectwo energetyczne przygotowane sprawnie i bez żadnych problemów. Pełen profesjonalizm i bardzo dobry kontakt.”</p>
+            <p style="font-size: 0.92rem; margin-bottom: 14px;">„Bardzo polecam! Profesjonalna i szybka obsługa, wszystko zostało dokładnie wyjaśnione, a świadectwo energetyczne przygotowane sprawnie i bez żadnych problemów. Pełen profesjonalizm i bardzo dobry kontakt.”</p>
           </div>
           <strong style="font-size: 0.82rem; color: var(--muted);">Opinia z Google • Odbiór domu</strong>
         </div>
@@ -1218,7 +1269,7 @@
         <div class="review-card">
           <div>
             <div class="stars">★★★★★</div>
-            <p style="font-size: 0.93rem; margin-bottom: 14px;">„Pan Paweł bardzo profesjonalnie i terminowo wykonał zlecenie świadectwa energetycznego. Bardzo dobry i miły kontakt i co najważniejsze: cieszę się, że trafiłam na zawodowca w swoim fachu! Serdecznie polecam usługi w wykonaniu Pana Pawła Bujak.”</p>
+            <p style="font-size: 0.92rem; margin-bottom: 14px;">„Pan Paweł bardzo profesjonalnie i terminowo wykonał zlecenie świadectwa energetycznego. Bardzo dobry i miły kontakt i co najważniejsze: cieszę się, że trafiłam na zawodowca w swoim fachu! Serdecznie polecam usługi w wykonaniu Pana Pawła Bujak.”</p>
           </div>
           <strong style="font-size: 0.82rem; color: var(--muted);">Opinia z Google • Powiat kartuski</strong>
         </div>
@@ -1226,7 +1277,7 @@
         <div class="review-card">
           <div>
             <div class="stars">★★★★★</div>
-            <p style="font-size: 0.93rem; margin-bottom: 14px;">„Bardzo dobry kontakt, rzeczowy i miły. Podczas sporządzania świadectwa energetycznego profesjonalne podejście. Warto wziąć fachowca, ponieważ list punktów do solidnego sprawdzenia jest naprawdę spora a w przypadku wizji na miejscu odpowiedzialność bierze osoba sporządzająca protokół. Uważam cenę za przystępną i wręcz niską biorąc pod uwagę dojazd oraz poświęcony czas na należyte sprawdzenie. Polecam!”</p>
+            <p style="font-size: 0.92rem; margin-bottom: 14px;">„Bardzo dobry kontakt, rzeczowy i miły. Podczas sporządzania świadectwa energetycznego profesjonalne podejście. Warto wziąć fachowca, ponieważ list punktów do solidnego sprawdzenia jest naprawdę spora a w przypadku wizji na miejscu odpowiedzialność bierze osoba sporządzająca protokół. Uważam cenę za przystępną i wręcz niską biorąc pod uwagę dojazd oraz poświęcony czas na należyte sprawdzenie. Polecam!”</p>
           </div>
           <strong style="font-size: 0.82rem; color: var(--muted);">Opinia z Google • Sprzedaż nieruchomości</strong>
         </div>
@@ -1234,7 +1285,7 @@
 
       <div style="text-align: center; margin-top: 28px;">
         <a href="https://share.google/Nw1u05MIOobuA0Szw" target="_blank" rel="noopener" class="btn btn-ghost">
-          Zobacz wszystkie opinie w Google →
+          Zobacz wszystkie 16 opinii w Google →
         </a>
       </div>
     </div>
